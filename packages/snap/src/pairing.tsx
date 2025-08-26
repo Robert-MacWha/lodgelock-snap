@@ -1,5 +1,5 @@
 import { createClient } from '@lodgelock/shared';
-import { showErrorScreen, showScreen } from './screen';
+import { showScreen } from './screen';
 import { Box, Button, Heading, Image, Text } from '@metamask/snaps-sdk/jsx';
 import { SCREENS } from './constants';
 import { PairingService } from './pairingService';

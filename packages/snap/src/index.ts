@@ -98,11 +98,11 @@ export async function selectScreen(
         //? Apparently metamask doesn't know that the error type exists. Or maybe
         //? they have a reason, idk. Regardless, this'll get the `message` field
         //? from any type
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
         if (
             error &&
             typeof error === 'object' &&
             'message' in error &&
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
             typeof (error as any).message === 'string'
         ) {
             message = error.message as string;
