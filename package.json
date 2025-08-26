@@ -18,6 +18,7 @@
         "dev:mobile": "yarn workspace @lodgelock/mobile dev",
         "dev:site": "yarn workspace @lodgelock/site dev",
         "dev:snap": "yarn workspace @lodgelock/snap dev",
+        "dev:website": "yarn workspace @lodgelock/lodgelock-website dev",
         "format": "prettier --write .",
         "lint": "yarn workspaces foreach run lint",
         "test": "yarn workspaces foreach run test"

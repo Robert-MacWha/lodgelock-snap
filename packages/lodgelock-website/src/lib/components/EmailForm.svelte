@@ -29,6 +29,7 @@
         submitStatus = 'idle';
 
         try {
+            console.log('Submitting email:', email);
             await addDoc(collection(db, 'email-signups'), {
                 email: email.toLowerCase().trim(),
                 timestamp: serverTimestamp(),

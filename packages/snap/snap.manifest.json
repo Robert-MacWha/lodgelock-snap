@@ -3,7 +3,7 @@
   "description": "A solution for storing private keys and signing transactions remotely",
   "proposedName": "Lodgelock",
   "source": {
-    "shasum": "EfnnC3OHAAkxwe942yoZlxO4JNFesZevocCvJN6zNBo=",
+    "shasum": "Gi2S2pg0ceQPsfYG95KJAEPGQMql1WiZXPpjbJd732Y=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

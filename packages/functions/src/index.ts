@@ -2,6 +2,9 @@ import * as admin from 'firebase-admin';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
+import { defineSecret } from 'firebase-functions/params';
+
+const turnstileSecret = defineSecret('TURNSTILE_SECRET_KEY');
 
 if (!admin.apps.length) {
     admin.initializeApp();
@@ -65,7 +68,10 @@ export const sendPushNotification = onCall(async (request) => {
 });
 
 export const validateEmailSignup = onDocumentCreated(
-    'email-signups/{docId}',
+    {
+        document: 'email-signups/{docId}',
+        secrets: [turnstileSecret]
+    },
     async (event) => {
         const data = event.data?.data();
         if (!data) return;
@@ -74,6 +80,8 @@ export const validateEmailSignup = onDocumentCreated(
             email: string;
             turnstileToken: string;
         };
+
+        console.log(`Validating signup for email=${email}`);
 
         try {
             const response = await fetch(
@@ -84,7 +92,7 @@ export const validateEmailSignup = onDocumentCreated(
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
                     body: new URLSearchParams({
-                        secret: process.env.TURNSTILE_SECRET_KEY!,
+                        secret: turnstileSecret.value(),
                         response: turnstileToken,
                     }).toString(),
                 },
@@ -95,7 +103,7 @@ export const validateEmailSignup = onDocumentCreated(
 
             // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             if (!result.success) {
-                console.log(`Invalid captcha for ${email}`);
+                console.warn(`Invalid captcha for ${email}, message=${JSON.stringify(result, null, 2)}`);
                 await event.data?.ref.delete();
                 return;
             }
@@ -109,7 +117,7 @@ export const validateEmailSignup = onDocumentCreated(
                 .get();
 
             if (existing.size > 1) {
-                console.log(`Duplicate email: ${email}`);
+                console.log(`Duplicate email: ${email} `);
                 await event.data?.ref.delete();
                 return;
             }
@@ -118,7 +126,7 @@ export const validateEmailSignup = onDocumentCreated(
                 turnstileToken: admin.firestore.FieldValue.delete(),
             });
 
-            console.log(`Valid signup: ${email}`);
+            console.log(`Valid signup: ${email} `);
         } catch (error) {
             console.error('Validation failed:', error);
             await event.data?.ref.delete();
