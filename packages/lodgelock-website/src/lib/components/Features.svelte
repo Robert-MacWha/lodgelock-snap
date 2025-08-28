@@ -2,7 +2,7 @@
     import Icon from '@iconify/svelte';
 </script>
 
-<section class="features py-5">
+<section class="features py-5" id="features">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-3">

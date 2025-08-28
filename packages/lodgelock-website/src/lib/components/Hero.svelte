@@ -3,20 +3,20 @@
 
     import phoneOutline from '$lib/assets/demo-screenshots/phone-outline.png';
 
-    import wallets from '$lib/assets/demo-screenshots/wallets.png';
-    import requests from '$lib/assets/demo-screenshots/requests.png';
-    import signTransaction from '$lib/assets/demo-screenshots/sign-transaction.png';
-    import signApproved from '$lib/assets/demo-screenshots/sign-approved.png';
+    import start from '$lib/assets/demo-screenshots/start.jpg';
+    import manageAccounts from '$lib/assets/demo-screenshots/import-account.jpg';
+    import signTransaction from '$lib/assets/demo-screenshots/sign-transaction.jpg';
+    import signApproved from '$lib/assets/demo-screenshots/sign-approved.jpg';
 
     let currentSlide = 0;
     const slides = [
         {
-            image: wallets,
-            description: 'Manage multiple accounts',
+            image: start,
+            description: '',
         },
         {
-            image: requests,
-            description: 'Receive new requests',
+            image: manageAccounts,
+            description: 'Manage multiple local accounts',
         },
         {
             image: signTransaction,

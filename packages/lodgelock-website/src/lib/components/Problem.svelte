@@ -80,9 +80,11 @@
                                     keys directly on your computer, making them
                                     prime targets for malware, phishing attacks,
                                     and browser exploits. Private key theft is
-                                    now the #1 most common incident reported to
-                                    SEAL911, the crypto security emergency
-                                    response service.
+                                    now the #2 most common incident reported to
+                                    <a
+                                        href="https://www.securityalliance.org/seal-911"
+                                        >SEAL911</a
+                                    >.
                                 </p>
                             </div>
                         </div>
