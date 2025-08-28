@@ -4646,7 +4646,7 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@metamask/eth-sig-util": ^8.2.0
     "@metamask/keyring-api": 20.1.0
-    "@metamask/keyring-snap-sdk": ^6.0.0
+    "@metamask/keyring-snap-sdk": ^7.0.0
     "@metamask/snaps-cli": 8.2.0
     "@metamask/snaps-jest": ^9.4.0
     "@metamask/snaps-sdk": ^9.3.0
@@ -4848,9 +4848,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/keyring-snap-sdk@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@metamask/keyring-snap-sdk@npm:6.0.0"
+"@metamask/keyring-snap-sdk@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@metamask/keyring-snap-sdk@npm:7.0.0"
   dependencies:
     "@metamask/keyring-utils": ^3.1.0
     "@metamask/snaps-sdk": ^9.0.0
@@ -4858,9 +4858,9 @@ __metadata:
     "@metamask/utils": ^11.1.0
     webextension-polyfill: ^0.12.0
   peerDependencies:
-    "@metamask/keyring-api": ^20.0.0
+    "@metamask/keyring-api": ^21.0.0
     "@metamask/providers": ^19.0.0
-  checksum: 378ae207f6a0caf342dfa57adf0144409aa192e8a6a21813800dca6e464935309f94671ae8b8c2fbd4fa7d4ab9cca6c5756c526d38773bcca22266c01af61776
+  checksum: 6ee723d039e3b31c539fa9b8e2fa05c03e3d58a218ec3e574804a95d3637400a388626d9b85fe5401f5d551b4d9cf772f10b0009ced92118b18ad58d1fc42fef
   languageName: node
   linkType: hard
 
