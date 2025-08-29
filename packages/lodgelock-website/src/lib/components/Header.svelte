@@ -40,6 +40,14 @@
                         GitHub
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link fw-medium"
+                        href="https://macwha.medium.com/keep-your-keys-off-your-desktop-introducing-lodgelock-9f2bd62aa21e"
+                    >
+                        Blog
+                    </a>
+                </li>
             </ul>
 
             <!-- CTA Button -->
