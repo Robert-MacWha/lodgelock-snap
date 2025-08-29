@@ -4,6 +4,8 @@
 
 Lodgelock is a keystore companion app for MetaMask that keeps private keys off your desktop, improving security while retaining convenience. It's designed to provide a similar convenience to using a browser-based wallet, while being more resiliant to common private-key-theft attack vectors.  It **isn't designed to replace hardware wallets**, but rather to provide a more ergonomic starting point for people wishing to increase their security.
 
+https://github.com/user-attachments/assets/0bc44820-ecd2-4c23-88c3-a36e176138f6
+
 ## Features
 
 - Mobile-based private key storage
