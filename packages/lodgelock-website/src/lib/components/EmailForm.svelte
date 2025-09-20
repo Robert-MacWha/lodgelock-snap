@@ -19,11 +19,11 @@
             return;
         }
 
-        if (!turnstileToken) {
-            errorMessage = 'Security verification required';
-            submitStatus = 'error';
-            return;
-        }
+        // if (!turnstileToken) {
+        //     errorMessage = 'Security verification required';
+        //     submitStatus = 'error';
+        //     return;
+        // }
 
         isSubmitting = true;
         submitStatus = 'idle';

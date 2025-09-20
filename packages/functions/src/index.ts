@@ -73,6 +73,8 @@ export const validateEmailSignup = onDocumentCreated(
         secrets: [turnstileSecret]
     },
     async (event) => {
+        return;
+
         const data = event.data?.data();
         if (!data) return;
 
