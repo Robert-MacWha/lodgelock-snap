@@ -1,52 +1,54 @@
 {
-    "name": "lodgelock",
-    "version": "1.0.0",
-    "private": true,
-    "description": "Lodgelock 2FA wallet system",
-    "license": "MIT",
-    "workspaces": [
-        "packages/*"
-    ],
-    "scripts": {
-        "build": "yarn workspaces foreach --parallel --topological run build",
-        "build:shared": "yarn workspace @lodgelock/shared build",
-        "build:site": "yarn workspace @lodgelock/site build",
-        "build:snap": "yarn workspace @lodgelock/snap build",
-        "deploy:functions": "yarn workspace @lodgelock/functions deploy",
-        "deploy:hosting": "yarn workspace @lodgelock/lodgelock-website deploy",
-        "dev": "concurrently \"yarn dev:mobile\" \"yarn dev:site\" \"yarn dev:snap\"",
-        "dev:mobile": "yarn workspace @lodgelock/mobile dev",
-        "dev:site": "yarn workspace @lodgelock/site dev",
-        "dev:snap": "yarn workspace @lodgelock/snap dev",
-        "dev:website": "yarn workspace @lodgelock/lodgelock-website dev",
-        "format": "prettier --write .",
-        "lint": "yarn workspaces foreach run lint",
-        "test": "yarn workspaces foreach run test"
-    },
-    "resolutions": {
-        "abitype": "^1.0.0",
-        "cookie": "^0.7.1",
-        "path-to-regexp@0.1.10": "^0.1.12",
-        "sharp": "^0.33.5",
-        "socket.io": "^4.8.1",
-        "typescript": "5.7.3",
-        "viem": "2.33.1",
-        "ws": "^8.17.1"
-    },
-    "devDependencies": {
-        "@types/jest": "^30.0.0",
-        "eslint": "^9.11.0",
-        "eslint-plugin-jest": "^28.8.3",
-        "jest": "^30.0.4",
-        "prettier": "^3.3.3",
-        "prettier-plugin-packagejson": "^2.5.19",
-        "ts-jest": "^29.4.0",
-        "ts-node": "^10.9.2",
-        "typescript": "~5.7.3",
-        "typescript-eslint": "^8.6.0"
-    },
-    "packageManager": "yarn@3.2.1",
-    "engines": {
-        "node": ">=20.19.4"
-    }
+  "name": "lodgelock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lodgelock 2FA wallet system",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach --parallel --topological run build",
+    "build:shared": "yarn workspace @lodgelock/shared build",
+    "build:site": "yarn workspace @lodgelock/site build",
+    "build:snap": "yarn workspace @lodgelock/snap build",
+    "deploy:functions": "yarn workspace @lodgelock/functions deploy",
+    "deploy:hosting": "yarn workspace @lodgelock/lodgelock-website deploy",
+    "dev": "concurrently \"yarn dev:mobile\" \"yarn dev:site\" \"yarn dev:snap\"",
+    "dev:mobile": "yarn workspace @lodgelock/mobile dev",
+    "dev:site": "yarn workspace @lodgelock/site dev",
+    "dev:snap": "yarn workspace @lodgelock/snap dev",
+    "dev:website": "yarn workspace @lodgelock/lodgelock-website dev",
+    "format": "prettier --write .",
+    "lint": "yarn workspaces foreach run lint",
+    "test": "yarn workspaces foreach run test",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "resolutions": {
+    "abitype": "^1.0.0",
+    "cookie": "^0.7.1",
+    "path-to-regexp@0.1.10": "^0.1.12",
+    "sharp": "^0.33.5",
+    "socket.io": "^4.8.1",
+    "typescript": "5.7.3",
+    "viem": "2.33.1",
+    "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "eslint": "^9.11.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "jest": "^30.0.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.19",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "^8.6.0"
+  },
+  "packageManager": "yarn@3.2.1",
+  "engines": {
+    "node": ">=20.19.4"
+  }
 }

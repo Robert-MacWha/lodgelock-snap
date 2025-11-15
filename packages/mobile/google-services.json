@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "446655754880",
+    "firebase_url": "https://tlock-974e6-default-rtdb.firebaseio.com",
+    "project_id": "tlock-974e6",
+    "storage_bucket": "tlock-974e6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446655754880:android:f1131287014f5611c96c65",
+        "android_client_info": {
+          "package_name": "com.lodgelock.companion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSDtWRG6Ji1UfohB2GyOS1BTywu3DpBaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

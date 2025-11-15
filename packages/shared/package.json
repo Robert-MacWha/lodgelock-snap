@@ -9,6 +9,7 @@
     ],
     "scripts": {
         "build": "tsc",
+        "prepare": "yarn build",
         "clean": "rm -rf dist",
         "dev": "tsc --watch",
         "lint": "eslint . --cache --ext js,ts",
