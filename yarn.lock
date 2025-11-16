@@ -5222,7 +5222,7 @@ __metadata:
     "@ethereumjs/tx": ^10.0.0
     "@jest/globals": ^29.5.0
     "@metamask/eth-sig-util": ^8.2.0
-    "@metamask/keyring-api": 20.1.0
+    "@metamask/keyring-api": 21.1.0
     "@metamask/keyring-snap-sdk": ^6.0.0
     "@metamask/snaps-cli": 8.2.0
     "@metamask/snaps-jest": ^9.4.0
@@ -5413,15 +5413,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/keyring-api@npm:20.1.0":
-  version: 20.1.0
-  resolution: "@metamask/keyring-api@npm:20.1.0"
+"@metamask/keyring-api@npm:21.1.0":
+  version: 21.1.0
+  resolution: "@metamask/keyring-api@npm:21.1.0"
   dependencies:
     "@metamask/keyring-utils": ^3.1.0
     "@metamask/superstruct": ^3.1.0
     "@metamask/utils": ^11.1.0
     bitcoin-address-validation: ^2.2.3
-  checksum: 469669a9860254a45e2757f678179f6791554f1804001d776a6b0ef3e9ca2a4da16d861140ec1b20d321caf4fac5581330e804be4aaeb7e2656d8a584a785628
+  checksum: f11a3ed9f6210e81b220c1240bc7d426a9190329d0319987e1d0295bbe2492cf66a50354025e088355a147f6c5be5ba4d059fd2b3a057ce25b04ae3b74ba31f9
   languageName: node
   linkType: hard
 
