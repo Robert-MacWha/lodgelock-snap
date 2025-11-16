@@ -1,78 +1,55 @@
 import {
-    createQrCode,
-    generateSharedSecret,
-    createClient,
-    PairRequest,
-    type Client,
-    type SharedSecret,
+    generatePairingQR,
+    waitForPairing,
+    type PairingInfo,
 } from '@lodgelock/shared';
 import qrcode from 'qrcode';
 import { updateState, getState } from './state';
-import { POLL_INTERVAL } from './constants';
 
 export interface PairingQrData {
     qrData: string;
     qrSrc: string;
-    requestId: string;
-    sharedSecret: SharedSecret;
+    pairingInfo: PairingInfo;
 }
 
 export class PairingService {
     async start(): Promise<PairingQrData> {
-        const sharedSecret = generateSharedSecret();
         const state = await getState();
-        const client = createClient(
-            sharedSecret,
-            undefined,
-            state?.firebaseUrl,
-        );
+        const pairingInfo = await generatePairingQR(state?.firebaseUrl);
 
-        const requestId = await client.submitRequest('pair', {
-            status: 'pending',
-            fcmToken: '',
-            deviceName: '',
-        });
-
+        // Save the shared secret to snap state
         await updateState({
-            sharedSecret,
+            sharedSecret: pairingInfo.sharedSecret,
         });
 
-        const qrData = createQrCode(sharedSecret, requestId);
-        const qrSrc = await qrcode.toString(qrData);
+        // Generate QR code image for snap UI
+        const qrSrc = await qrcode.toString(pairingInfo.qrCode);
 
         return {
-            qrData,
+            qrData: pairingInfo.qrCode,
             qrSrc,
-            requestId,
-            sharedSecret,
+            pairingInfo,
         };
     }
 
     async waitForPairing(
-        requestId: string,
-        client: Client,
-        sharedSecret: SharedSecret,
+        pairingInfo: PairingInfo,
         timeoutSeconds = 300,
-    ): Promise<PairRequest> {
-        const response = await client.pollUntil(
-            requestId,
-            'pair',
-            POLL_INTERVAL,
+    ): Promise<{ fcmToken: string; deviceName: string }> {
+        const state = await getState();
+        const result = await waitForPairing(
+            pairingInfo,
+            state?.firebaseUrl,
             timeoutSeconds,
-            (resp) => {
-                return resp.status !== 'pending';
-            },
         );
 
-        // If pairing was successful, save the pairing data
-        if (response.status === 'approved') {
-            await updateState({
-                sharedSecret,
-                fcmToken: response.fcmToken,
-                deviceName: response.deviceName,
-            });
-        }
+        // Save the pairing data to snap state
+        await updateState({
+            sharedSecret: pairingInfo.sharedSecret,
+            fcmToken: result.fcmToken,
+            deviceName: result.deviceName,
+        });
 
-        return response;
+        return result;
     }
 }

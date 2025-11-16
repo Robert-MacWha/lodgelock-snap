@@ -1,13 +1,11 @@
-import { createClient } from '@lodgelock/shared';
 import { showScreen } from './screen';
 import { Box, Button, Heading, Image, Text } from '@metamask/snaps-sdk/jsx';
 import { SCREENS } from './constants';
 import { PairingService } from './pairingService';
-import { getState } from './state';
 
 export async function showPairingScreen(interfaceId: string) {
     const pairing = new PairingService();
-    const { qrSrc, requestId, sharedSecret } = await pairing.start();
+    const { qrSrc, pairingInfo } = await pairing.start();
 
     await showScreen(
         interfaceId,
@@ -21,14 +19,7 @@ export async function showPairingScreen(interfaceId: string) {
         </Box>,
     );
 
-    const state = await getState();
-    const client = createClient(sharedSecret, undefined, state?.firebaseUrl);
-
-    const response = await pairing.waitForPairing(
-        requestId,
-        client,
-        sharedSecret,
-    );
+    const response = await pairing.waitForPairing(pairingInfo);
 
     await showScreen(
         interfaceId,
