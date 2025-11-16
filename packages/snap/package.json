@@ -18,7 +18,7 @@
         "@ethereumjs/tx": "^10.0.0",
         "@metamask/eth-sig-util": "^8.2.0",
         "@metamask/keyring-api": "20.1.0",
-        "@metamask/keyring-snap-sdk": "^6.0.0",
+        "@metamask/keyring-snap-sdk": "^7.1.0",
         "@metamask/snaps-jest": "^9.4.0",
         "@metamask/snaps-sdk": "^9.3.0",
         "@types/qrcode": "^1.5.5",
